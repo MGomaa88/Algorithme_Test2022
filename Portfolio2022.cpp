@@ -57,10 +57,15 @@ bool additive(std::string s)
 	return false;
 }
 
+/*
+************* Exercise 4 ****************
+Write an algorithm that takes an array of unsorted, unique natural numbers as input 
+and finds the three numbersin the array whose sum is closest to a power of 2. 
+The same number can only be used once.
+ */
 int* getPowerOfTwo(int input[], int length)
 {
-
-	int powerTwo[10];
+    int powerTwo[10];
 	static int myArray[4];
 	for (size_t i = 0; i < sizeof powerTwo / sizeof(powerTwo[0]); i++)
 	{
@@ -83,10 +88,6 @@ int* getPowerOfTwo(int input[], int length)
 
 				for (size_t i = 0; i < sizeof powerTwo / sizeof(powerTwo[0]); i++)
 				{
-					/*if (powerTwo[i] < input[first] || powerTwo[i] < input[second] || powerTwo[i] < input[third])
-					{
-						i++;
-					}*/
 					 if (tot == powerTwo[i] ||  tot == powerTwo[i] - 1)
 					{
 						myArray[0] = input[first];
@@ -103,21 +104,55 @@ int* getPowerOfTwo(int input[], int length)
 
 return myArray;
 }
-int main()
+
+/* ************ Excercise 6 *************
+The algorithm returns the sum of integers greater than 0 
+and smaller than or equal to N that are divisible by 3.
+Called with N = 12 the correct return value is 30 (3+6+9+12).
+*/
+int sumDivisibleBy3(int N)
 {
 
+
+	if (N == 0)
+	{
+		return 0;
+	}
+	else if (N % 3 == 0)
+	{
+
+		return N + sumDivisibleBy3(N - 1);
+	}
+	else
+	{
+		return sumDivisibleBy3(N - 1);
+	}
+
+
+}
+
+int main()
+{
+	cout << "\n****** Excercise 1 *******"  << endl;
 	cout << " The sum is " << sumOfOddSquare(8) << endl;
 
+
+	cout << "\n****** Excercise 2 *******" << endl;
 	cout << " Is there additive nr? " << additive("82842605") << endl;
 
+
+
+	cout << "\n****** Excercise 4 *******" << endl;
 	int random[13] = { 23,56,22,11,65,89,3,44,87,910,45,35,98 };
-
 	int* numbers = getPowerOfTwo(random, 13);
-
 	for (size_t i = 0; i < 4; i++)
 	{
 		cout << numbers[i] << endl;
 	}
+
+
+	cout << "\n****** Excercise 6 *******" << endl;
+	cout << sumDivisibleBy3(14) << endl;
 
 
 
