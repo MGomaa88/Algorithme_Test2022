@@ -134,15 +134,18 @@ int sumDivisibleBy3(int N)
 int main()
 {
 	cout << "\n****** Excercise 1 *******"  << endl;
-	cout << " The sum is " << sumOfOddSquare(8) << endl;
+	cout << " The sum of odd square of 8 is " << sumOfOddSquare(8) << endl;
 
 
 	cout << "\n****** Excercise 2 *******" << endl;
-	cout << " Is there additive nr? " << additive("82842605") << endl;
+	cout << " Is there additive in 82842605 ? " << additive("82842605") << endl;
 
 
 
 	cout << "\n****** Excercise 4 *******" << endl;
+
+	cout << "\n array=  23,56,22,11,65,89,3,44,87,910,45,35,98" << endl;
+	cout << "\n The three numbers in the array which their sum is near to power of two are " << endl;
 	int random[13] = { 23,56,22,11,65,89,3,44,87,910,45,35,98 };
 	int* numbers = getPowerOfTwo(random, 13);
 	for (size_t i = 0; i < 4; i++)
@@ -152,6 +155,7 @@ int main()
 
 
 	cout << "\n****** Excercise 6 *******" << endl;
+	cout << "\nsum of integers that are divisible by 3. The inserted number is 14 " << endl;
 	cout << sumDivisibleBy3(14) << endl;
 
 
