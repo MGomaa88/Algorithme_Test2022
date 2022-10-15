@@ -130,6 +130,46 @@ int sumDivisibleBy3(int N)
 
 
 }
+/* ************ Exercise 7 *************
+
+*/
+
+int* getXandY( int Z)
+{
+	static int myArray[2];	
+	bool checkMe = true;;
+	int total, x=3 ;
+
+
+	while (checkMe)
+	{
+		
+	for (int y=3; y < 11; y++)
+	{
+		total = pow(x, y);
+		checkMe = true;
+		
+			if ( total == Z)
+			{
+				myArray[0] = x;
+				myArray[1] = y;
+				checkMe = false;
+				y = 10;
+				
+			}
+			else if (total > Z)
+			{
+				y = 10;
+			}
+
+	}
+
+	x++;
+	}
+
+
+	return myArray;
+}
 
 int main()
 {
@@ -159,5 +199,17 @@ int main()
 	cout << sumDivisibleBy3(14) << endl;
 
 
+
+	cout << "\n****** Excercise 7 *******" << endl;
+	int* xy = getXandY(6561);
+
+	for (int r = 0; r < 2; r++)
+	{
+
+	  cout <<xy[r] << endl;
+	}
+
+
+	cout << pow( 3,10) << endl;
 
 }
