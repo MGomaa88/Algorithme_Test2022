@@ -27,7 +27,13 @@ int sumOfOddSquare(int N)
 	}
 	else
 	{
-		return pow(N, 2) + sumOfOddSquare(N - 1);
+		int temp = N - 2;
+		if (temp > 0)
+		  return pow(N, 2) + sumOfOddSquare(temp);
+
+		
+		else 
+			return pow(N, 2) + sumOfOddSquare(N - 1);
 	}
 
 
@@ -93,7 +99,7 @@ int* getPowerOfTwo(int input[], int length)
 
 				for (size_t i = 0; i < sizeof powerTwo / sizeof(powerTwo[0]); i++)
 				{
-					if (tot == powerTwo[i] || tot == powerTwo[i] - 1)
+					if (tot == powerTwo[i] || tot == powerTwo[i] - 1 || tot == powerTwo[i] + 1)
 					{
 						myArray[0] = input[first];
 						myArray[1] = input[second];
@@ -229,8 +235,9 @@ int logTo(int N)
 */
 int getNumberOfVotes(int input[], int length)
 {
-	// Its not possible in c++ to make array without static length. So i used vector, as we dont know the max index if candidate in advance. 
-	// First solution to this excercise with Time complexity: 1 + 1 + 1+ n + 1+ n + n = 4 + 3n = O(n)
+	
+	// First solution to this excercise 
+	// Time complexity: 1 + 1 + 1+ n + 1+ n + n = 4 + 3n = O(n)
 	int majority = length/2;
 	int min = input[0];
 	int max = 0;
@@ -266,7 +273,8 @@ int getNumberOfVotes(int input[], int length)
 
 
 
-	// Here another solution with time complextiy: 1 + 1 + n * (1 + 1 + n + 1 + 1 + 1 ) = 2 + 5n + n^2 = O(n^2) 
+	// Here another solution with 
+	// time complextiy: 1 + 1 + n * (1 + 1 + n + 1 + 1 + 1 ) = 2 + 5n + n^2 = O(n^2) 
 	/*
 	int temp = 0;
 	int counter = 0;
@@ -312,13 +320,20 @@ int main()
 
 	cout << "\n****** Excercise 4 *******" << endl;
 
-	cout << "\n array=  23,56,22,11,65,89,3,44,87,910,45,35,98" << endl;
 	cout << "\n The three numbers in the array which their sum is near to power of two are " << endl;
+	cout << "\n array 1 =  23,56,22,11,65,89,3,44,87,910,45,35,98" << endl;
 	int random[13] = { 23,56,22,11,65,89,3,44,87,910,45,35,98 };
 	int* numbers = getPowerOfTwo(random, 13);
 	for (size_t i = 0; i < 4; i++)
 	{
 		cout << numbers[i] << endl;
+	}
+	cout << "\n array 2 =  25,18,22,11,88,77,5,22,87,317,95,35,69" << endl;
+	int random2[13] = { 25,18,22,11,88,77,5,22,87,317,95,35,69 };
+	int* numbers2 = getPowerOfTwo(random2, 13);
+	for (size_t i = 0; i < 4; i++)
+	{
+		cout << numbers2[i] << endl;
 	}
 
 
