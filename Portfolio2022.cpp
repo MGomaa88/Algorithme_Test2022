@@ -29,11 +29,11 @@ int sumOfOddSquare(int N)
 	{
 		int temp = N - 2;
 		if (temp > 0)
-		  return pow(N, 2) + sumOfOddSquare(temp);
+			return pow(N, 2) + sumOfOddSquare(temp);
 
-		
-		else 
-			return pow(N, 2) + sumOfOddSquare(N - 1);
+
+		else
+			return pow(N, 2); 
 	}
 
 
