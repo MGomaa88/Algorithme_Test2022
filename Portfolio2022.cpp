@@ -12,6 +12,7 @@ using namespace std;
 //********** Excercise 1***************
 //Write a recursive algorithm/method, which takes a positive integer
 // as parameter and returns the sum of the odd numbers squares from 1 to N.
+// Example: called with the parameter 8, the method returns 84 (1^2 +3^2 + 5^2 + 7^2).
 
 int sumOfOddSquare(int N)
 {
@@ -50,7 +51,7 @@ bool additive(std::string s)
 	int a = l - 2;
 	int b = l - 3;
 
-	if (l == 2)
+	if (l < 3 )
 	{
 		return false;
 	}
@@ -132,7 +133,7 @@ int sumDivisibleBy3(int N)
 	else if (N % 3 == 0)
 	{
 
-		return N + sumDivisibleBy3(N - 1);
+		return N + sumDivisibleBy3(N - 3);
 	}
 	else
 	{
@@ -142,9 +143,9 @@ int sumDivisibleBy3(int N)
 
 }
 /* ************ Exercise 7 *************
-Write an algorithm that can decide if a given natural number Z < 100,000 (the parameter of the algorithm)
+Write an algorithm that can decide if a given natural number Z < 100,000 (the parameter of the function)
 can be written as Z=X^Y where X and Y are integers with X > 2 and Y > 2.
-6561 is an example of a natural number that can be written as X^Y
+  6561 is an example of a natural number that can be written as X^Y
   where X and Y are integers, i.e. 9^4. Another example is 3125 (5^5).
 */
 // Optimize the algorithm by finding X
@@ -204,13 +205,10 @@ int* getXandY(int Z)
 
 		for (int y = 3; y < 11; y++)
 		{
-			total = pow(optimizeX(Z), y);
+			total = pow(myArray[0], y);
 
 			if (total == Z)
 				myArray[1] = y;
-
-
-
 		}
 	}
 	return myArray;
@@ -232,6 +230,10 @@ int logTo(int N)
 }
 
 /* ************ Excercise 11 **********
+* The task is to write an algorithm, which called with the array (and possibly the length of the array)
+can decide if any candidate(element) got more than 50 % of the votes.
+In that case the number of the candidate is returned. If no candidate got more than 50 % 
+of the vote -1 is returned. This algorithm similar to a histogram function
 */
 int getNumberOfVotes(int input[], int length)
 {
@@ -351,7 +353,7 @@ int main()
 
 
 	cout << "\n****** Excercise 10 *******" << endl;
-	cout << "LogTo(1000) is " << logTo(1000) << endl;
+	cout << "LogTo(1024) is " << logTo(1024) << endl;
 	cout << "LogTo(4096) is " << logTo(4096) << endl;
  
 	cout << "\n****** Excercise 11 *******" << endl;
