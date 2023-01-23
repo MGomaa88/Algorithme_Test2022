@@ -58,6 +58,7 @@ bool additive(std::string s)
 	else if (int(s.at(y)) + 48 == int(s.at(a)) + int(s.at(b))) // the ascii value of 0 = 48, 1=49 , etc..
 	{
 		return true;
+		
 	}
 	else
 	{
@@ -173,7 +174,7 @@ int* getXandY(int Z)
 	static int myArray[2];
 	bool checkMe = true;
 	int total = 0;
-	int x = 3;
+	int x = optimizeX(Z);
 
 
 	// Solution before optimizing
@@ -199,9 +200,9 @@ int* getXandY(int Z)
 	}*/
 
 	// solution after optmizing 
-	if (optimizeX(Z) > 2)
+	if (x > 2)
 	{
-		myArray[0] = optimizeX(Z);
+		myArray[0] = x;
 
 		for (int y = 3; y < 11; y++)
 		{
@@ -215,7 +216,8 @@ int* getXandY(int Z)
 }
 
 /* ****** Excercise 10 *************
-The algorithm returns the base 2 logarithm of N, and it is a precondition that N is a positive number and a power of 2.
+The algorithm returns the base 2 logarithm of N, and it is a precondition that N is 
+a positive number and a power of 2.
 Called with N = 32 it returns 5, and with N = 4096 returns 12.
 */
 int logTo(int N)
